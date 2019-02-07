@@ -7,9 +7,15 @@ import lombok.Data;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 
 @Data
-public class Product {
+@MappedSuperclass
+public abstract class Product {
+
+    public Product() {
+    }
+
     private String name;
     private String description;
 
