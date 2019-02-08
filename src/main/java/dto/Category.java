@@ -1,18 +1,12 @@
 package dto;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
 @Data
-@Table(name = "CATEGORY")
 public class Category {
+
     @Id
-    @GeneratedValue
-    private Integer id;
+    private String id;
     private String categoryName;
 }

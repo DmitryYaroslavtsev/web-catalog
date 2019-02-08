@@ -1,29 +1,21 @@
 package dto;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity
-@Table(name = "PRODUCT")
 public class Product {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    private String id;
 
     private String name;
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id")
     private Category category;
 
-    @ElementCollection(targetClass = Colors.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "colors", joinColumns = @JoinColumn(name = "color_id"))
-    @Enumerated(EnumType.STRING)
     private Set<Colors> colors;
 
     private Boolean sterility;
