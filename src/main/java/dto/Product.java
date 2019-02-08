@@ -1,7 +1,5 @@
-package dto.products;
+package dto;
 
-import dto.Category;
-import dto.Colors;
 import lombok.Data;
 
 import javax.persistence.*;

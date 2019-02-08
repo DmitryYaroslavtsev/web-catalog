@@ -2,7 +2,7 @@ package com.github.dmitryyaroslavtsev.webcatalog;
 
 import dto.Category;
 import dto.Colors;
-import dto.products.Product;
+import dto.Product;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
