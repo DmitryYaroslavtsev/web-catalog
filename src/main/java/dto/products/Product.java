@@ -4,19 +4,13 @@ import dto.Category;
 import dto.Colors;
 import lombok.Data;
 
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
-@MappedSuperclass
-public abstract class Product {
-
-    public Product() {
-    }
+@Entity
+@Table(name = "PRODUCT")
+public class Product {
 
     @Id
     @GeneratedValue
@@ -29,9 +23,11 @@ public abstract class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "color_id")
-    private Colors colors;
+    @ElementCollection(targetClass = Colors.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "colors", joinColumns = @JoinColumn(name = "color_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Colors> colors;
+
     private Boolean sterility;
     private Long packagingCount;
     private Long transportBoxCount;
