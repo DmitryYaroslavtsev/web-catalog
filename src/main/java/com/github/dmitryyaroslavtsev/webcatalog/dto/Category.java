@@ -1,4 +1,4 @@
-package dto;
+package com.github.dmitryyaroslavtsev.webcatalog.dto;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

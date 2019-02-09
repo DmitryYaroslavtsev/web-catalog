@@ -1,4 +1,4 @@
-package dto;
+package com.github.dmitryyaroslavtsev.webcatalog.dto;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -19,6 +19,6 @@ public class Product {
     private Set<Colors> colors;
 
     private Boolean sterility;
-    private Long packagingCount;
-    private Long transportBoxCount;
+    private Integer packagingCount;
+    private Integer transportBoxCount;
 }

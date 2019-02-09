@@ -1,6 +1,6 @@
-package repos;
+package com.github.dmitryyaroslavtsev.webcatalog.repos;
 
-import dto.Product;
+import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
