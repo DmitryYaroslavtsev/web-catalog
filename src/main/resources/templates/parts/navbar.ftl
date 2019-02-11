@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Главная страница</a>
+                <a class="nav-link text-white" href="/">Главная страница</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">О нас</a>
+                <a class="nav-link text-white" href="/">О нас</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/catalog">Каталог продукции</a>
+                <a class="nav-link text-white" href="/catalog">Каталог продукции</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">Контакты</a>
+                <a class="nav-link text-white" href="/">Контакты</a>
             </li>
         </ul>
     </div>

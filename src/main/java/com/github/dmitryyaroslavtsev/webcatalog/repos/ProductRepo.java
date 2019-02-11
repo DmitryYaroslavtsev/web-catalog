@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface ProductRepo extends MongoRepository<Product, Long> {
+public interface ProductRepo extends MongoRepository<Product, String> {
     @Override
-    Optional<Product> findById(Long aLong);
+    Optional<Product> findById(String id);
 }
