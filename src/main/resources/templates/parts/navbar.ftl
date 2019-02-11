@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link text-white" href="/">Главная страница</a>
             </li>

@@ -15,6 +15,7 @@ public class Product {
     private String description;
 
     private Category category;
+    private String subcategory;
 
     private Set<Colors> colors;
 
