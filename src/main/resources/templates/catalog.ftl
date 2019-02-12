@@ -14,23 +14,10 @@
         </div>
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
-                <#--<div class="tab-pane fade" id="list-${category}" role="tabpanel" aria-labelledby="list-home-list">-->
-                <#--<#list subcategory as subcategories>-->
-                <#--</#list>-->
-                <#--</div>-->
-
                 <#list categories as category>
-                    <@s.sub category subcategories>
+                    <@s.sub category subcategories countList>
                     </@s.sub>
                 </#list>
-                <#--<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...-->
-                <#--</div>-->
-                <#--<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">-->
-                <#--...-->
-                <#--</div>-->
-                <#--<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">-->
-                <#--...-->
-                <#--</div>-->
             </div>
         </div>
     </div>

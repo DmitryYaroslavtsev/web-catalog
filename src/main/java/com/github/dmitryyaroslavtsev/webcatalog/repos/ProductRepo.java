@@ -10,4 +10,8 @@ public interface ProductRepo extends MongoRepository<Product, String> {
     Optional<Product> findById(String id);
 
     Optional<Product> findByCategory(String category);
+
+    Integer countAllByCategory(String category);
+
+    Integer countAllBySubcategory(String subcategory);
 }
