@@ -1,5 +1,6 @@
 <#macro sub category subcategories countList>
-    <div class="tab-pane fade" id="list-${category}" role="tabpanel" aria-labelledby="list-home-list">
+    <div class="tab-pane fade" id="list-${category?replace(" ", "-")}" role="tabpanel"
+         aria-labelledby="list-${category?replace(" ", "-")}-list">
         <div class="row">
             <div class="card-group">
                 <#if subcategories[category]??>
@@ -11,6 +12,7 @@
                             <div class="card-body">
                                 Всякая писанина
                             </div>
+                            <a href="#" class="btn btn-info text-white">Перейти в раздел</a>
                         </div>
                     </#list>
                 </#if>
