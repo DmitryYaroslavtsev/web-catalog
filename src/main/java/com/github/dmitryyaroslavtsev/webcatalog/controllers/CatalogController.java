@@ -33,11 +33,6 @@ public class CatalogController {
             subcategories.put(categoryName, category.getSubcategories());
         }
 
-
-
-
-
-
         model.put("categories", categoryNames);
         model.put("subcategories", subcategories);
 
