@@ -12,7 +12,7 @@
                 </#list>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col">
             <div class="tab-content" id="nav-tabContent">
                 <#list categories as category>
                     <@s.sub category subcategories countList>
