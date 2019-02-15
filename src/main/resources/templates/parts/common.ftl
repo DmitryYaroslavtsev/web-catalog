@@ -18,8 +18,8 @@
     <div class="container mt-5 w-lg">
         <#nested>
     </div>
-    <footer class="footer fixed-bottom bg-secondary font-small blue p-2">
-        <div class="footer-copyright text-center py-2">© 2018 Copyright</div>
+    <footer class="footer fixed-bottom bg-dark font-small text-white p-2">
+        <div class="footer-copyright text-center py-2">© 2019 Copyright</div>
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
