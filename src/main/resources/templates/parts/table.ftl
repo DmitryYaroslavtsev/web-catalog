@@ -1,20 +1,40 @@
 <#macro table products>
     <#list products as product>
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">${product?counter}</th>
             <td>${product.name!}</td>
             <td>${product.description!}</td>
-            <td>${product.size!}</td>
-            <td>${product.attributes.material!}</td>
-            <td>${product.attributes.density!}</td>
+            <td>
+                <#list product.attributes.size! as size>
+                    ${size}
+                </#list>
+            </td>
+            <td>
+                <#list product.attributes.material! as material>
+                    ${material}
+                </#list>
+            </td>
+            <td>
+                <#list product.attributes.density! as density>
+                    ${density}
+                </#list>
+            </td>
             <td>${product.attributes.sterility!?string}</td>
             <td>
                 <#list product.attributes.colors! as color>
                     ${color}
                 </#list>
             </td>
-            <td>${product.attributes.packagingCount!}</td>
-            <td>${product.attributes.transportBoxCount!}</td>
+            <td>
+                <#list product.attributes.packagingCount! as packagingCount>
+                    ${packagingCount}
+                </#list>
+            </td>
+            <td>
+                <#list product.attributes.transportBoxCount! as transportBoxCount>
+                    ${transportBoxCount}
+                </#list>
+            </td>
             <td>${product.attributes.tax!}</td>
         </tr>
     </#list>

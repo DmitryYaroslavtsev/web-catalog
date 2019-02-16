@@ -1,6 +1,6 @@
 package com.github.dmitryyaroslavtsev.webcatalog.dto;
 
-public enum  Colors {
-    Зеленый,
-    Белый
+public enum Sterility {
+    Да,
+    Нет
 }

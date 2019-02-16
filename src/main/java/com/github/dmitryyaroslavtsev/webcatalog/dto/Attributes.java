@@ -2,17 +2,18 @@ package com.github.dmitryyaroslavtsev.webcatalog.dto;
 
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
 public class Attributes {
 
-    private String size;
-    private String material;
-    private String density;
-    private Boolean sterility;
+    private List<String> size;
+    private List<String> material;
+    private List<String> density;
+    private Sterility sterility;
     private Set<Colors> colors;
-    private Integer packagingCount;
-    private Integer transportBoxCount;
+    private List<Integer> packagingCount;
+    private List<Integer> transportBoxCount;
     private Integer tax;
 }
