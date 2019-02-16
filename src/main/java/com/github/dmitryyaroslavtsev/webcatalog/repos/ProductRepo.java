@@ -3,6 +3,7 @@ package com.github.dmitryyaroslavtsev.webcatalog.repos;
 import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepo extends MongoRepository<Product, String> {
@@ -15,5 +16,5 @@ public interface ProductRepo extends MongoRepository<Product, String> {
 
     Integer countAllBySubcategory(String subcategory);
 
-    Optional<Product> findBySubcategory(String subcategory);
+    List<Product> findBySubcategory(String subcategory);
 }

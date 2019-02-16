@@ -15,7 +15,7 @@
         <div class="col-md-10 col-sm-6">
             <div class="tab-content" id="nav-tabContent">
                 <#list categories as category>
-                    <@s.sub category subcategories countList>
+                    <@s.sub category subcategories countList products>
                     </@s.sub>
                 </#list>
             </div>

@@ -1,27 +1,21 @@
-<#macro table>
-    <table class="table-responsive table-bordered table-sm">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Наименование</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Размер</th>
-            <th scope="col">Материал</th>
-            <th scope="col">Плотность</th>
-            <th scope="col">Стерильность</th>
-            <th scope="col">Цвета</th>
-            <th scope="col">Кол-во в упаковке</th>
-            <th scope="col">Кол-во в транспортном коробе</th>
-            <th scope="col">НДС</th>
-        </tr>
-        </thead>
-        <tbody>
+<#macro table products>
+    <#list products as product>
         <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>${product.name!}</td>
+            <td>${product.description!}</td>
+            <td>${product.size!}</td>
+            <td>${product.attributes.material!}</td>
+            <td>${product.attributes.density!}</td>
+            <td>${product.attributes.sterility!?string}</td>
+            <td>
+                <#list product.attributes.colors! as color>
+                    ${color}
+                </#list>
+            </td>
+            <td>${product.attributes.packagingCount!}</td>
+            <td>${product.attributes.transportBoxCount!}</td>
+            <td>${product.attributes.tax!}</td>
         </tr>
-        </tbody>
-    </table>
+    </#list>
 </#macro>

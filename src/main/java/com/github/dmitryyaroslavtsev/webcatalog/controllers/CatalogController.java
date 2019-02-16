@@ -1,6 +1,7 @@
 package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
 import com.github.dmitryyaroslavtsev.webcatalog.dto.Category;
+import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.CategoryRepo;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/catalog")
@@ -31,6 +33,8 @@ public class CatalogController {
         List<String> categoryNames = new ArrayList<>();
         Map<String, List<String>> subcategories = new HashMap<>();
 
+        Map<String, List<Product>> products = new HashMap<>();
+
         for (Category category : categories) {
             String categoryName = category.getCategoryName();
             categoryNames.add(categoryName);
@@ -39,6 +43,9 @@ public class CatalogController {
                 for (String subcategory : category.getSubcategories()) {
                     String count = productRepo.countAllBySubcategory(subcategory).toString();
                     countList.put(subcategory, count);
+
+                    products.put(subcategory, productRepo.findBySubcategory(subcategory));
+
                 }
             }
         }
@@ -46,6 +53,7 @@ public class CatalogController {
         model.put("categories", categoryNames);
         model.put("subcategories", subcategories);
         model.put("countList", countList);
+        model.put("products", products);
 
         return "catalog";
     }
