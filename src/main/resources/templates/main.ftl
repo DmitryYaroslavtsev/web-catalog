@@ -1,7 +1,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-    <div class="jumbotron">
+    <div class="jumbotron wow fadeIn justify-content-center">
         <h1 class="display-4">Привет!</h1>
         <p class="lead">Мы - самая лучшая компания!</p>
         <hr class="my-4">

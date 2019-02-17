@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info wow fadeIn">
     <a class="navbar-brand" href="/">Web-catalog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
                 <a class="nav-link text-white" href="/">О нас</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="/catalog">Каталог продукции</a>
+                <a class="nav-link text-white" href="/catalog/">Каталог продукции</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="/">Контакты</a>

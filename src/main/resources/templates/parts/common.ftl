@@ -20,13 +20,15 @@
         <link href="../../css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="../../css/style.css" rel="stylesheet">
+        <!-- MDBootstrap Datatables  -->
+        <link href="../../css/addons/datatables.min.css" rel="stylesheet">
 
         <title>Web-catalog</title>
     </head>
     <body>
     <#include "navbar.ftl" >
     <main>
-        <div class="container-fluid p-5">
+        <div class="container-fluid p-5 wow fadeIn">
             <#nested>
         </div>
     </main>
@@ -53,6 +55,15 @@
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../../js/mdb.min.js"></script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="../../js/addons/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
     </body>
     </html>
 </#macro>

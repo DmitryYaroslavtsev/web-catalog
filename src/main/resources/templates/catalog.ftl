@@ -3,7 +3,7 @@
 <#import "parts/subcategory.ftl" as s>
 
 <@c.page>
-    <div class="row">
+    <div class="row wow fadeIn">
         <div class="col-md-2 col-sm-6">
             <div class="list-group" id="list-tab" role="tablist">
                 <#list categories as category>
