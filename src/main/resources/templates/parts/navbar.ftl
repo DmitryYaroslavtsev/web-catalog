@@ -10,13 +10,13 @@
                 <a class="nav-link text-white" href="/">Главная страница</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="/">О нас</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-white" href="/catalog/">Каталог продукции</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="/">Контакты</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/">О нас</a>
             </li>
         </ul>
     </div>

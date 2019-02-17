@@ -23,7 +23,7 @@
                                             data-target=#card_${category?replace(" ", "-")}_${subcategory?index}
                                             aria-expanded="true"
                                             aria-controls=${subcategory?index}>
-                                        Перейти в раздел
+                                        Развернуть раздел
                                     </button>
                                 </h5>
                             </div>
