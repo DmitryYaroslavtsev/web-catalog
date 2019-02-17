@@ -16,4 +16,5 @@ public class Attributes {
     private List<Integer> packagingCount;
     private List<Integer> transportBoxCount;
     private Integer tax;
+
 }
