@@ -28,7 +28,7 @@
                                 </h5>
                             </div>
 
-                            <div id=card_${category?replace(" ", "-")}_${subcategory?index} class="collapse mx-auto"
+                            <div id=card_${category?replace(" ", "-")}_${subcategory?index} class="collapse"
                                  aria-labelledby=${category?replace(" ", "-")}_${subcategory?index}
                                  data-parent="#accordion_${category?replace(" ", "-")}">
                                 <div class="card-body">
