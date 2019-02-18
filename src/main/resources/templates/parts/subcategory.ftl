@@ -28,7 +28,7 @@
                                 </h5>
                             </div>
 
-                            <div id=card_${category?replace(" ", "-")}_${subcategory?index} class="collapse"
+                            <div id=card_${category?replace(" ", "-")}_${subcategory?index} class="collapse mx-auto"
                                  aria-labelledby=${category?replace(" ", "-")}_${subcategory?index}
                                  data-parent="#accordion_${category?replace(" ", "-")}">
                                 <div class="card-body">
@@ -47,8 +47,6 @@
                                             <th class="th-sm">Стерильность</th>
                                             <th class="th-sm">Цвета</th>
                                             <th class="th-sm">Кол-во в упаковке</th>
-                                            <th class="th-sm">Кол-во в транспортном коробе</th>
-                                            <th class="th-sm">НДС</th>
                                         </tr>
                                         </thead>
                                         <tbody

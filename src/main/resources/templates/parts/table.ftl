@@ -30,12 +30,6 @@
                     ${packagingCount}
                 </#list>
             </td>
-            <td>
-                <#list product.attributes.transportBoxCount! as transportBoxCount>
-                    ${transportBoxCount}
-                </#list>
-            </td>
-            <td>${product.attributes.tax!}</td>
         </tr>
     </#list>
 </#macro>

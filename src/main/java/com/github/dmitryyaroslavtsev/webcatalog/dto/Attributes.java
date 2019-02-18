@@ -14,6 +14,4 @@ public class Attributes {
     private Sterility sterility;
     private Set<Colors> colors;
     private List<Integer> packagingCount;
-    private List<Integer> transportBoxCount;
-    private Integer tax;
 }
