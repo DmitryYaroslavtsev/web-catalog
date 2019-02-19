@@ -21,12 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers(
                             "/",
                             "/catalog/**",
-                            "/static/**",
                             "/resources/**",
                             "/css/**",
                             "/js/**",
-                            "/images/**",
-                            "/webjars/**").permitAll()
+                            "/font/**",
+                            "/img/**",
+                            "/sccs/**"
+                    ).permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
