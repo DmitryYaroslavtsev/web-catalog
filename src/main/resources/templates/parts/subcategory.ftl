@@ -50,8 +50,7 @@
                                         </tr>
                                         </thead>
                                         <tbody
-                                        <@table.table products[subcategory]>
-                                        </@table.table>
+                                        <@table.table products[subcategory] />
                                         </tbody>
                                     </table>
                                 </div>
