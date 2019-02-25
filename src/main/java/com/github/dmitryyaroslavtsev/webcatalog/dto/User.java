@@ -15,6 +15,7 @@ public class User implements UserDetails {
     private String id;
     private String username;
     private String password;
+    private Boolean active;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -38,6 +39,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return active;
     }
 }
