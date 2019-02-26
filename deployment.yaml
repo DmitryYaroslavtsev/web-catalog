@@ -20,7 +20,7 @@ spec:
         workload.user.cattle.io/workloadselector: deployment-default-webcatalog
     spec:
       containers:
-      - image: madfromplay/webcatalog:887553c
+      - image: madfromplay/webcatalog:${CICD_GIT_COMMIT}
         imagePullPolicy: Always
         name: webcatalog
         ports:
