@@ -4,4 +4,12 @@ stages:
   - runScriptConfig:
       image: maven:3.3-jdk-8
       shellScript: mvn clean install
+- name: build-container
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: madfromplay/webacatalog:${CICD_GIT_COMMIT}
+      pushRemote: true
+      registry: index.docker.io
 timeout: 60
