@@ -12,4 +12,8 @@ stages:
       tag: madfromplay/webacatalog:${CICD_GIT_COMMIT}
       pushRemote: true
       registry: index.docker.io
+- name: Deployment
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yml
 timeout: 60
