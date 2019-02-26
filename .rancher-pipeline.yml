@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: madfromplay/webacatalog:${CICD_GIT_COMMIT}
+      tag: madfromplay/webcatalog:${CICD_GIT_COMMIT}
       pushRemote: true
       registry: index.docker.io
 - name: Deployment
