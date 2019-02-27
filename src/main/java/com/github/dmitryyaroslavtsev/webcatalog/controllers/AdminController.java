@@ -1,16 +1,13 @@
 package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
-import com.github.dmitryyaroslavtsev.webcatalog.dto.Category;
-import com.github.dmitryyaroslavtsev.webcatalog.repos.CategoryRepo;
+import com.github.dmitryyaroslavtsev.webcatalog.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Arrays;
 import java.util.Map;
 
 @Controller
@@ -18,7 +15,7 @@ import java.util.Map;
 public class AdminController {
 
     @Autowired
-    private CategoryRepo categoryRepo;
+    private AdminService adminService;
 
     @GetMapping("")
     public String getAdmin() {
@@ -31,19 +28,10 @@ public class AdminController {
             @RequestParam String subcategoriesNames,
             Map<String, Object> model
     ) {
-
-        if (!categoryRepo.findByCategoryName(categoryName).isPresent()) {
-
-
-            Category category = new Category();
-
-            category.setCategoryName(categoryName);
-            if (!StringUtils.isEmpty(subcategoriesNames)) {
-                category.setSubcategories(Arrays.asList(subcategoriesNames.split(" ")));
-            }
-            categoryRepo.save(category);
+        if (!adminService.categoryExists(categoryName)) {
+            adminService.createCategory(categoryName, subcategoriesNames);
         } else {
-            model.put("error", "Test");
+            model.put("error", "Category already exists");
         }
         return "admin";
     }

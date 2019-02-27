@@ -1,10 +1,8 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-    <#if error??>
-        <#include "parts/modal.ftl">
-    </#if>
     <form class="needs-validation" method="post" enctype="multipart/form-data">
+        <label>Добавление категории</label>
         <div class="col-3 md-form">
             <i class="fas fa-pencil-alt prefix"></i>
             <label for="categoryName">Добавить категорию</label>
@@ -20,4 +18,7 @@
         </div>
         <button class="btn btn-info text-white btn-sm" type="submit">Добавить</button>
     </form>
+    <#if error??>
+        <script>alert("Категория уже существует!");</script>
+    </#if>
 </@c.page>
