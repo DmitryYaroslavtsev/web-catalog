@@ -25,4 +25,9 @@ public class AdminService {
     public boolean categoryExists(String categoryName) {
         return categoryRepo.findByCategoryName(categoryName).isPresent();
     }
+
+    public boolean removeCategory(String categoryName) {
+        Long t = categoryRepo.deleteByCategoryName(categoryName);
+        return t.equals(1L);
+    }
 }

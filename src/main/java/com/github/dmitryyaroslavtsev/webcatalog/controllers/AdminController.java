@@ -1,12 +1,16 @@
 package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
 import com.github.dmitryyaroslavtsev.webcatalog.service.AdminService;
+import com.github.dmitryyaroslavtsev.webcatalog.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
 
@@ -17,22 +21,44 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping("")
-    public String getAdmin() {
+    @Autowired
+    private CatalogService catalogService;
+
+    private ModelAndView modelAndView = new ModelAndView();
+
+
+    @GetMapping
+    public String getAdmin(Map<String, Object> model) {
+
+        model.putAll(catalogService.getCatalog());
         return "admin";
     }
 
-    @PostMapping("")
-    public String addCategory(
+    @PostMapping("/add")
+    public ModelAndView addCategory(
             @RequestParam String categoryName,
             @RequestParam String subcategoriesNames,
-            Map<String, Object> model
-    ) {
+            RedirectAttributes attributes) {
+
+
         if (!adminService.categoryExists(categoryName)) {
             adminService.createCategory(categoryName, subcategoriesNames);
         } else {
-            model.put("error", "Category already exists");
+            attributes.addFlashAttribute("addError", "Category already exists");
         }
-        return "admin";
+        modelAndView.setViewName("redirect:/admin");
+        return modelAndView;
+    }
+
+    @PostMapping("{category}/remove")
+    public ModelAndView removeCategory(
+            @PathVariable String category,
+            RedirectAttributes attributes
+    ) {
+        if (!adminService.removeCategory(category)) {
+            attributes.addFlashAttribute("removeError", "Can't remove category");
+        }
+        modelAndView.setViewName("redirect:/admin");
+        return modelAndView;
     }
 }
