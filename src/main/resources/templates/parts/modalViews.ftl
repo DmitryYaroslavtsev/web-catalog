@@ -1,4 +1,4 @@
-<#macro test category_counter>
+<#macro editView category_counter>
     <div class="m-auto">
         <button type="button" class="btn btn-info text-white btn-sm" data-toggle="modal"
         data-target="#edit_modal_form${category_counter}">

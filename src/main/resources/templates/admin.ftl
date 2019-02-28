@@ -1,5 +1,5 @@
 <#import "parts/common.ftl" as c>
-<#import "parts/test.ftl" as test>
+<#import "parts/modalViews.ftl" as modalView>
 
 <@c.page>
     <div class="row">
@@ -47,7 +47,7 @@
                             </#if>
                         </td>
                         <td>
-                            <@test.test (category?counter) />
+                            <@modalView.editView (category?counter) />
                         </td>
                         <td>
                             <button type="submit" form="${category?counter}_remove"
@@ -61,14 +61,12 @@
             </table>
 
             <#list categories as category>
-                <form id="${category?counter}_remove" action="/admin/${category}/remove" class="form-row text-center"
-                      method="post"></form>
-
                 <form id="${category?counter}_edit" action="/admin/${category}/edit" class="form-row text-center"
                       method="post">
                 </form>
 
-
+                <form id="${category?counter}_remove" action="/admin/${category}/remove" class="form-row text-center"
+                      method="post"></form>
             </#list>
         </form>
     </div>
