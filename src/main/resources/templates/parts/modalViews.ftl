@@ -1,4 +1,4 @@
-<#macro editView category_counter>
+<#macro editView category_counter category>
     <div class="m-auto">
         <button type="button" class="btn btn-info text-white btn-sm" data-toggle="modal"
                 data-target="#edit_modal_form${category_counter}">
@@ -7,39 +7,43 @@
     </div>
 
     <div class="modal fade" id="edit_modal_form${category_counter}" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
+         aria-labelledby="edit_modal_form${category_counter}"
          aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-info" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">Редактировать категорию</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body mx-3">
+
                     <div class="md-form mb-5">
-                        <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="email" id="defaultForm-email${category_counter}"
-                               class="form-control validate">
-                        <label data-error="wrong" data-success="right"
-                               for="defaultForm-email${category_counter}">Your email</label>
+                        <input type="text" id="form-categoryName" name="categoryName" class="form-control"
+                               form="edit_${category_counter}" value=${category}>
+                        <label for="form-categoryName">Название</label>
                     </div>
 
-                    <div class="md-form mb-4">
-                        <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="defaultForm-pass${category_counter}"
-                               class="form-control validate">
-                        <label data-error="wrong" data-success="right"
-                               for="defaultForm-pass${category_counter}">Your password</label>
+                    <div class="md-form mb-5">
+                        <input type="text" id="form-subcategoriesNames" name="subcategoriesNames" class="form-control"
+                               form="edit_${category_counter}">
+                        <label for="form-subcategoriesNames">Подкатегории (через пробел)</label>
                     </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" form="edit_${category_counter}"
-                            class="btn btn-info text-white">
-                        <i class="fas fa-trash mr-2"></i>Редактировать
-                    </button>
+                    <div class="col">
+                        <button type="submit" form="edit_${category_counter}"
+                                class="btn btn-info text-white">
+                            <i class="fas fa-pencil-alt mr-2"></i>Сохранить
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-info text-white" data-dismiss="modal">
+                            <i class="fas fa-times mr-2"></i>Отменить
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,7 +59,7 @@
     </div>
 
     <div class="modal fade" id="remove_modal_form${category_counter}" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
+         aria-labelledby="remove_modal_form${category_counter}"
          aria-hidden="true">
         <div class="modal-dialog modal-danger" role="document">
             <div class="modal-content">

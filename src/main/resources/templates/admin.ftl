@@ -42,15 +42,15 @@
                         <td>
                             <#if subcategories[category]??>
                                 <#list subcategories[category] as subcategory>
-                                    ${subcategory!}
+                                    ${subcategory!}<#sep>,
                                 </#list>
                             </#if>
                         </td>
                         <td>
-                            <@modalView.editView (category?counter) />
+                            <@modalView.editView category?counter category/>
                         </td>
                         <td>
-                            <@modalView.removeView (category?counter) category />
+                            <@modalView.removeView category?counter category/>
                         </td>
                     </tr>
                 </#list>
