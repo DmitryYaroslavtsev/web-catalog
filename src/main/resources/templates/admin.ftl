@@ -50,10 +50,7 @@
                             <@modalView.editView (category?counter) />
                         </td>
                         <td>
-                            <button type="submit" form="${category?counter}_remove"
-                                    class="btn btn-danger text-white btn-sm"><i class="fas fa-trash mr-2"
-                                                                                aria-hidden="true"></i>Удалить
-                            </button>
+                            <@modalView.removeView (category?counter) category />
                         </td>
                     </tr>
                 </#list>
@@ -61,11 +58,11 @@
             </table>
 
             <#list categories as category>
-                <form id="${category?counter}_edit" action="/admin/${category}/edit" class="form-row text-center"
+                <form id="edit_${category?counter}" action="/admin/${category}/edit" class="form-row text-center"
                       method="post">
                 </form>
 
-                <form id="${category?counter}_remove" action="/admin/${category}/remove" class="form-row text-center"
+                <form id="remove_${category?counter}" action="/admin/${category}/remove" class="form-row text-center"
                       method="post"></form>
             </#list>
         </form>

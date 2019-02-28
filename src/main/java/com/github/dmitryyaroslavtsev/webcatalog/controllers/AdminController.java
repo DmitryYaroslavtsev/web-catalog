@@ -2,6 +2,7 @@ package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
 import com.github.dmitryyaroslavtsev.webcatalog.service.AdminService;
 import com.github.dmitryyaroslavtsev.webcatalog.service.CatalogService;
+import com.github.dmitryyaroslavtsev.webcatalog.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,9 @@ public class AdminController {
 
     @Autowired
     private CatalogService catalogService;
+
+    @Autowired
+    private ProductService productService;
 
     private ModelAndView modelAndView = new ModelAndView();
 
@@ -53,11 +57,17 @@ public class AdminController {
     @PostMapping("{category}/remove")
     public ModelAndView removeCategory(
             @PathVariable String category,
+            @RequestParam(required = false) boolean removeProductCheckbox,
             RedirectAttributes attributes
     ) {
-        if (!adminService.removeCategory(category)) {
+        if (adminService.removeCategory(category)) {
+            if (removeProductCheckbox) {
+                productService.removeProductsByCategory(category);
+            }
+        } else {
             attributes.addFlashAttribute("removeError", "Can't remove category");
         }
+
         modelAndView.setViewName("redirect:/admin");
         return modelAndView;
     }

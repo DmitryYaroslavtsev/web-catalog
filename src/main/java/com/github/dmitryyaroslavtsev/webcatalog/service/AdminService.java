@@ -27,7 +27,6 @@ public class AdminService {
     }
 
     public boolean removeCategory(String categoryName) {
-        Long t = categoryRepo.deleteByCategoryName(categoryName);
-        return t.equals(1L);
+        return categoryRepo.deleteByCategoryName(categoryName).equals(1L);
     }
 }

@@ -19,4 +19,6 @@ public interface ProductRepo extends MongoRepository<Product, String> {
     Integer countAllBySubcategory(String subcategory);
 
     List<Product> findBySubcategory(String subcategory);
+
+    Long deleteAllByCategoryCategoryName(String category);
 }
