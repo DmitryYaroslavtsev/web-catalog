@@ -1,4 +1,5 @@
 <#import "parts/common.ftl" as c>
+<#import "parts/test.ftl" as test>
 
 <@c.page>
     <div class="row">
@@ -46,24 +47,28 @@
                             </#if>
                         </td>
                         <td>
-                            <button type="submit" form="${category?counter}_edit"
-                                    class="btn btn-info text-white btn-sm">Редактировать
-                            </button>
+                            <@test.test (category?counter) />
                         </td>
                         <td>
                             <button type="submit" form="${category?counter}_remove"
-                                    class="btn btn-danger text-white btn-sm">Удалить
+                                    class="btn btn-danger text-white btn-sm"><i class="fas fa-trash mr-2"
+                                                                                aria-hidden="true"></i>Удалить
                             </button>
                         </td>
                     </tr>
                 </#list>
                 </tbody>
             </table>
+
             <#list categories as category>
                 <form id="${category?counter}_remove" action="/admin/${category}/remove" class="form-row text-center"
                       method="post"></form>
+
                 <form id="${category?counter}_edit" action="/admin/${category}/edit" class="form-row text-center"
-                      method="post"></form>
+                      method="post">
+                </form>
+
+
             </#list>
         </form>
     </div>

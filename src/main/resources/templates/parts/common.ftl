@@ -19,7 +19,10 @@
         <title>Web-catalog</title>
     </head>
     <body>
-    <#include "navbar.ftl" >
+    <header>
+        <#include "navbar.ftl" >
+    </header>
+
     <main>
         <div class="container-fluid p-5 wow fadeIn">
             <#nested>
@@ -40,5 +43,6 @@
     <script type="text/javascript" src="../../js/mdb.min.js"></script>
 
     </body>
+
     </html>
 </#macro>
