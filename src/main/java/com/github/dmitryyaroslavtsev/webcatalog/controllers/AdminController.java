@@ -30,15 +30,19 @@ public class AdminController {
 
     private ModelAndView modelAndView = new ModelAndView();
 
-
     @GetMapping
-    public String getAdmin(Map<String, Object> model) {
-
-        model.putAll(catalogService.getCatalog());
+    public String getAdminPage() {
         return "admin";
     }
 
-    @PostMapping("/add")
+    @GetMapping("categories")
+    public String getCategoryEditor(Map<String, Object> model) {
+
+        model.putAll(catalogService.getCatalog());
+        return "categoryEditor";
+    }
+
+    @PostMapping("categories/add")
     public ModelAndView addCategory(
             @RequestParam String categoryName,
             @RequestParam String subcategoriesNames,
@@ -50,11 +54,11 @@ public class AdminController {
         } else {
             attributes.addFlashAttribute("addError", "Category already exists");
         }
-        modelAndView.setViewName("redirect:/admin");
+        modelAndView.setViewName("redirect:/admin/categories");
         return modelAndView;
     }
 
-    @PostMapping("{category}/edit")
+    @PostMapping("categories/{category}/edit")
     public ModelAndView editCategory(
             @PathVariable String category,
             @RequestParam String categoryNewName,
@@ -66,11 +70,11 @@ public class AdminController {
             attributes.addFlashAttribute("editError", "Category find category for update");
         }
 
-        modelAndView.setViewName("redirect:/admin");
+        modelAndView.setViewName("redirect:/admin/categories");
         return modelAndView;
     }
 
-    @PostMapping("{category}/remove")
+    @PostMapping("categories/{category}/remove")
     public ModelAndView removeCategory(
             @PathVariable String category,
             @RequestParam(required = false) boolean removeProductCheckbox,
@@ -84,7 +88,7 @@ public class AdminController {
             attributes.addFlashAttribute("removeError", "Can't remove category");
         }
 
-        modelAndView.setViewName("redirect:/admin");
+        modelAndView.setViewName("redirect:/admin/categories");
         return modelAndView;
     }
 }

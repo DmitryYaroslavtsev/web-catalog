@@ -103,11 +103,11 @@
 <#macro forms categories>
     <#list categories as category>
 
-        <form id="edit_${category_index}" action="/admin/${category}/edit" class="form-row text-center"
+        <form id="edit_${category_index}" action="/admin/categories/${category}/edit" class="form-row text-center"
               method="post" enctype="multipart/form-data">
         </form>
 
-        <form id="remove_${category_index}" action="/admin/${category}/remove" class="form-row text-center"
+        <form id="remove_${category_index}" action="/admin/categories/${category}/remove" class="form-row text-center"
               method="post" enctype="multipart/form-data">
         </form>
     </#list>
