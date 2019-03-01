@@ -16,7 +16,7 @@
                 <i class="fas fa-pencil-alt prefix"></i>
                 <label for="subcategories">Добавить подкатегорию</label>
                 <input type="text" class="form-control" id="subcategories" name="subcategoriesNames"
-                       placeholder="Имена подкатегорий (через пробел)">
+                       placeholder="Имена подкатегорий (через запятую)">
             </div>
             <button class="btn btn-info text-white btn-sm" type="submit">Добавить</button>
         </form>
@@ -49,7 +49,7 @@
                         <td>
                             <#if subcategories[category]??>
                                 <#assign subcategoryString>
-                                    <#list subcategories[category] as subcategory>${subcategory}<#sep> </#sep></#list>
+                                    <#list subcategories[category] as subcategory>${subcategory}<#sep>,</#sep></#list>
                                 </#assign>
                             <#else>
                                 <#assign subcategoryString = "">
@@ -82,5 +82,9 @@
 
     <#if removeError??>
         <script>alert("Невозможно удалить категорию");</script>
+    </#if>
+
+    <#if editError??>
+        <script>alert("Невозможно обновить категорию");</script>
     </#if>
 </@c.page>

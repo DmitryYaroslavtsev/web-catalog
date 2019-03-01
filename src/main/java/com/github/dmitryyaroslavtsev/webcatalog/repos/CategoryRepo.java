@@ -4,11 +4,9 @@ import com.github.dmitryyaroslavtsev.webcatalog.dto.Category;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface CategoryRepo extends MongoRepository<Category, String> {
-    Optional<Category> findByCategoryName(String categoryName);
+    Category findByCategoryName(String categoryName);
 
     Long deleteByCategoryName(String categoryName);
 }

@@ -54,6 +54,22 @@ public class AdminController {
         return modelAndView;
     }
 
+    @PostMapping("{category}/edit")
+    public ModelAndView editCategory(
+            @PathVariable String category,
+            @RequestParam String categoryNewName,
+            @RequestParam(required = false) String subcategoriesNames,
+            RedirectAttributes attributes
+    ) {
+
+        if (!adminService.updateCategory(category, categoryNewName, subcategoriesNames)) {
+            attributes.addFlashAttribute("editError", "Category find category for update");
+        }
+
+        modelAndView.setViewName("redirect:/admin");
+        return modelAndView;
+    }
+
     @PostMapping("{category}/remove")
     public ModelAndView removeCategory(
             @PathVariable String category,

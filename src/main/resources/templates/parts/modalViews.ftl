@@ -18,18 +18,17 @@
                     </button>
                 </div>
                 <div class="modal-body mx-3">
-
                     <div class="md-form mb-5">
-                        <input type="text" id="form-categoryName" name="categoryName" class="form-control"
-                               form="edit_${category_counter}" value="${category}">
+                        <input type="text" id="form-categoryName" name="categoryNewName" class="form-control"
+                               form="edit_${category_counter}" value="${category}" required>
                         <label for="form-categoryName">Название</label>
                     </div>
 
                     <div class="md-form mb-5">
-                            <input type="text" id="form-subcategoriesNames" name="subcategoriesNames"
-                                   class="form-control"
-                                   form="edit_${category_counter}" value="${subcategoryString?trim}">
-                            <label for="form-subcategoriesNames">Подкатегории (через пробел)</label>
+                        <input type="text" id="form-subcategoriesNames" name="subcategoriesNames"
+                               class="form-control"
+                               form="edit_${category_counter}" value="${subcategoryString?trim}">
+                        <label for="form-subcategoriesNames">Подкатегории (через запятую)</label>
                     </div>
 
                 </div>
