@@ -11,8 +11,9 @@
          aria-hidden="true">
         <div class="modal-dialog modal-info" role="document">
             <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Редактировать категорию</h4>
+                <div class="modal-header text-center info-color text-white">
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-pencil-alt mr-2"></i>Редактировать
+                        категорию</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -63,8 +64,9 @@
          aria-hidden="true">
         <div class="modal-dialog modal-danger" role="document">
             <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Удалить категорию</h4>
+                <div class="modal-header text-center danger-color text-white">
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-trash mr-2"></i>Удалить категорию
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
