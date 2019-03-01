@@ -47,7 +47,14 @@
                             </#if>
                         </td>
                         <td>
-                            <@modalView.editView category?counter category/>
+                            <#if subcategories[category]??>
+                                <#assign subcategoryString>
+                                    <#list subcategories[category] as subcategory>${subcategory}<#sep> </#sep></#list>
+                                </#assign>
+                            <#else>
+                                <#assign subcategoryString = "">
+                            </#if>
+                            <@modalView.editView category?counter category subcategoryString/>
                         </td>
                         <td>
                             <@modalView.removeView category?counter category/>

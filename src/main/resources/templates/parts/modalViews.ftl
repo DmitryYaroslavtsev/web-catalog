@@ -1,4 +1,4 @@
-<#macro editView category_counter category>
+<#macro editView category_counter category subcategoryString>
     <div class="m-auto">
         <button type="button" class="btn btn-info text-white btn-sm" data-toggle="modal"
                 data-target="#edit_modal_form${category_counter}">
@@ -21,14 +21,15 @@
 
                     <div class="md-form mb-5">
                         <input type="text" id="form-categoryName" name="categoryName" class="form-control"
-                               form="edit_${category_counter}" value=${category}>
+                               form="edit_${category_counter}" value="${category}">
                         <label for="form-categoryName">Название</label>
                     </div>
 
                     <div class="md-form mb-5">
-                        <input type="text" id="form-subcategoriesNames" name="subcategoriesNames" class="form-control"
-                               form="edit_${category_counter}">
-                        <label for="form-subcategoriesNames">Подкатегории (через пробел)</label>
+                            <input type="text" id="form-subcategoriesNames" name="subcategoriesNames"
+                                   class="form-control"
+                                   form="edit_${category_counter}" value="${subcategoryString?trim}">
+                            <label for="form-subcategoriesNames">Подкатегории (через пробел)</label>
                     </div>
 
                 </div>
