@@ -1,5 +1,5 @@
 <#macro logout>
     <form action="/logout" method="post">
-        <button class="btn info-color-dark text-white btn-sm" type="submit"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</button>
+        <button class="btn btn-info text-white btn-sm" type="submit"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</button>
     </form>
 </#macro>

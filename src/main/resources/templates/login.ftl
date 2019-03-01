@@ -14,7 +14,7 @@
                     <input type="password" name="password" id="password" class="form-control mb-4"
                            placeholder="Password">
 
-                    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+                    <button class="btn info-color-dark btn-block my-4" type="submit">Sign in</button>
                 </form>
             </div>
         </div>

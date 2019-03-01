@@ -1,7 +1,7 @@
 <#include "security.ftl">
 <#import "logout.ftl" as l>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-info wow fadeIn">
+<nav class="navbar navbar-expand-lg navbar-dark info-color-dark wow fadeIn">
     <a class="navbar-brand" href="/">Web-catalog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

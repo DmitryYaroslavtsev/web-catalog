@@ -1,6 +1,6 @@
 <#macro editView category_index category subcategoryString>
     <div class="m-auto">
-        <button type="button" class="btn btn-info text-white btn-sm" data-toggle="modal"
+        <button type="button" class="btn info-color-dark text-white btn-sm" data-toggle="modal"
                 data-target="#edit_modal_form${category_index}">
             <i class="fas fa-pencil-alt mr-2"></i>Редактировать
         </button>
@@ -11,7 +11,7 @@
          aria-hidden="true">
         <div class="modal-dialog modal-info" role="document">
             <div class="modal-content">
-                <div class="modal-header text-center info-color text-white">
+                <div class="modal-header text-center info-color-dark text-white">
                     <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-pencil-alt mr-2"></i>Редактировать
                         категорию</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -36,12 +36,12 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="col">
                         <button type="submit" form="edit_${category_index}"
-                                class="btn btn-info text-white">
+                                class="btn info-color-dark text-white">
                             <i class="fas fa-pencil-alt mr-2"></i>Сохранить
                         </button>
                     </div>
                     <div class="col">
-                        <button type="button" class="btn btn-outline-info text-white" data-dismiss="modal">
+                        <button type="button" class="btn btn-outline-info info-color-dark text-white" data-dismiss="modal">
                             <i class="fas fa-times mr-2"></i>Отменить
                         </button>
                     </div>
@@ -98,4 +98,17 @@
             </div>
         </div>
     </div>
+</#macro>
+
+<#macro forms categories>
+    <#list categories as category>
+
+        <form id="edit_${category_index}" action="/admin/${category}/edit" class="form-row text-center"
+              method="post" enctype="multipart/form-data">
+        </form>
+
+        <form id="remove_${category_index}" action="/admin/${category}/remove" class="form-row text-center"
+              method="post" enctype="multipart/form-data">
+        </form>
+    </#list>
 </#macro>

@@ -3,7 +3,7 @@
 
 <@c.page>
     <div class="row">
-        <form action="/admin/add" class="needs-validation col-4" method="post" enctype="multipart/form-data">
+        <form action="/admin/add" class="needs-validation col-md-4 col-sm-6" method="post" enctype="multipart/form-data">
             <label>Добавление категории</label>
             <div class="md-form">
                 <i class="fas fa-pencil-alt prefix"></i>
@@ -18,10 +18,10 @@
                 <input type="text" class="form-control" id="subcategories" name="subcategoriesNames"
                        placeholder="Имена подкатегорий (через запятую)">
             </div>
-            <button class="btn btn-info text-white btn-sm" type="submit">Добавить</button>
+            <button class="btn info-color-dark text-white btn-sm" type="submit">Добавить</button>
         </form>
 
-        <div class="col-8">
+        <div class="col-md-8 col-sm-6">
             <table id="category"
                    class="table table-bordered table-hover table-sm text-center"
                    cellspacing="0" width="100%">
@@ -64,16 +64,8 @@
                 </tbody>
             </table>
 
-            <#list categories as category>
+            <@modalView.forms categories />
 
-                <form id="edit_${category_index}" action="/admin/${category}/edit" class="form-row text-center"
-                      method="post" enctype="multipart/form-data">
-                </form>
-
-                <form id="remove_${category_index}" action="/admin/${category}/remove" class="form-row text-center"
-                      method="post" enctype="multipart/form-data">
-                </form>
-            </#list>
         </div>
     </div>
 

@@ -7,7 +7,7 @@
         <hr class="my-4">
         <p>Для просмотра информации о наших предложениях перейдите в каталог</p>
         <p class="lead">
-            <a class="btn btn-info text-white btn-lg" href="/catalog/" role="button">Перейти в каталог</a>
+            <a class="btn info-color-dark text-white btn-lg" href="/catalog/" role="button">Перейти в каталог</a>
         </p>
     </div>
 </@c.page>

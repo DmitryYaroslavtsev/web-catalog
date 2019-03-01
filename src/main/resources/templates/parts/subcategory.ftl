@@ -13,12 +13,12 @@
                 <#if subcategories[category]??>
                     <#list subcategories[category] as subcategory>
                         <div class="card text-center m-2 p-1 w-100">
-                            <h6 class="card-header bg-info text-white">${subcategory!}
+                            <h6 class="card-header info-color-dark text-white">${subcategory!}
                                 <span class="badge badge-light float-right">${countList[subcategory]}</span>
                             </h6>
                             <div class="card-body" id=${category?replace(" ", "-")}_${subcategory?index}>
                                 <h5 class="mb-0">
-                                    <button class="btn btn-info text-white" type="button"
+                                    <button class="btn info-color-dark text-white" type="button"
                                             data-toggle="collapse"
                                             data-target=#card_${category?replace(" ", "-")}_${subcategory?index}
                                             aria-expanded="true"
