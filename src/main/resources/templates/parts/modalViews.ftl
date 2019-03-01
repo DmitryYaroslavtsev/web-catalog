@@ -1,13 +1,13 @@
-<#macro editView category_counter category subcategoryString>
+<#macro editView category_index category subcategoryString>
     <div class="m-auto">
         <button type="button" class="btn btn-info text-white btn-sm" data-toggle="modal"
-                data-target="#edit_modal_form${category_counter}">
+                data-target="#edit_modal_form${category_index}">
             <i class="fas fa-pencil-alt mr-2"></i>Редактировать
         </button>
     </div>
 
-    <div class="modal fade" id="edit_modal_form${category_counter}" tabindex="-1" role="dialog"
-         aria-labelledby="edit_modal_form${category_counter}"
+    <div class="modal fade" id="edit_modal_form${category_index}" tabindex="-1" role="dialog"
+         aria-labelledby="edit_modal_form${category_index}"
          aria-hidden="true">
         <div class="modal-dialog modal-info" role="document">
             <div class="modal-content">
@@ -21,21 +21,21 @@
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5">
                         <input type="text" id="form-categoryName" name="categoryNewName" class="form-control"
-                               form="edit_${category_counter}" value="${category}" required>
+                               form="edit_${category_index}" value="${category}" required>
                         <label for="form-categoryName">Название</label>
                     </div>
 
                     <div class="md-form mb-5">
                         <input type="text" id="form-subcategoriesNames" name="subcategoriesNames"
                                class="form-control"
-                               form="edit_${category_counter}" value="${subcategoryString?trim}">
+                               form="edit_${category_index}" value="${subcategoryString?trim}">
                         <label for="form-subcategoriesNames">Подкатегории (через запятую)</label>
                     </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="col">
-                        <button type="submit" form="edit_${category_counter}"
+                        <button type="submit" form="edit_${category_index}"
                                 class="btn btn-info text-white">
                             <i class="fas fa-pencil-alt mr-2"></i>Сохранить
                         </button>
@@ -51,16 +51,16 @@
     </div>
 </#macro>
 
-<#macro removeView category_counter category>
+<#macro removeView category_index category>
     <div class="m-auto">
         <button type="button" class="btn btn-danger text-white btn-sm" data-toggle="modal"
-                data-target="#remove_modal_form${category_counter}">
+                data-target="#remove_modal_form${category_index}">
             <i class="fas fa-trash mr-2"></i>Удалить
         </button>
     </div>
 
-    <div class="modal fade" id="remove_modal_form${category_counter}" tabindex="-1" role="dialog"
-         aria-labelledby="remove_modal_form${category_counter}"
+    <div class="modal fade" id="remove_modal_form${category_index}" tabindex="-1" role="dialog"
+         aria-labelledby="remove_modal_form${category_index}"
          aria-hidden="true">
         <div class="modal-dialog modal-danger" role="document">
             <div class="modal-content">
@@ -76,15 +76,15 @@
                         <h6>Вы уверены, что хотите удалить категорию "${category}?"</h6>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="removeProductCheckbox" form="remove_${category_counter}"
-                               class="form-check-input" id="removeProduct_${category_counter}">
-                        <label class="form-check-label" for="remove_${category_counter}">Удалить все товары данной
+                        <input type="checkbox" name="removeProductCheckbox" form="remove_${category_index}"
+                               class="form-check-input" id="removeProduct_${category_index}">
+                        <label class="form-check-label" for="remove_${category_index}">Удалить все товары данной
                             категории?</label>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="col">
-                        <button type="submit" form="remove_${category_counter}"
+                        <button type="submit" form="remove_${category_index}"
                                 class="btn btn-danger text-white">
                             <i class="fas fa-trash mr-2"></i>Удалить
                         </button>

@@ -21,7 +21,7 @@
             <button class="btn btn-info text-white btn-sm" type="submit">Добавить</button>
         </form>
 
-        <form class="col-8">
+        <div class="col-8">
             <table id="category"
                    class="table table-bordered table-hover table-sm text-center"
                    cellspacing="0" width="100%">
@@ -37,7 +37,7 @@
                 <tbody>
                 <#list categories as category>
                     <tr>
-                        <th scope="row">${category?counter}</th>
+                        <th scope="row">${category_index}</th>
                         <td>${category}</td>
                         <td>
                             <#if subcategories[category]??>
@@ -54,10 +54,10 @@
                             <#else>
                                 <#assign subcategoryString = "">
                             </#if>
-                            <@modalView.editView category?counter category subcategoryString/>
+                            <@modalView.editView category_index category subcategoryString/>
                         </td>
                         <td>
-                            <@modalView.removeView category?counter category/>
+                            <@modalView.removeView category_index category/>
                         </td>
                     </tr>
                 </#list>
@@ -65,14 +65,16 @@
             </table>
 
             <#list categories as category>
-                <form id="edit_${category?counter}" action="/admin/${category}/edit" class="form-row text-center"
-                      method="post">
+
+                <form id="edit_${category_index}" action="/admin/${category}/edit" class="form-row text-center"
+                      method="post" enctype="multipart/form-data">
                 </form>
 
-                <form id="remove_${category?counter}" action="/admin/${category}/remove" class="form-row text-center"
-                      method="post"></form>
+                <form id="remove_${category_index}" action="/admin/${category}/remove" class="form-row text-center"
+                      method="post" enctype="multipart/form-data">
+                </form>
             </#list>
-        </form>
+        </div>
     </div>
 
     <!-- SCRIPTS FOR ERROR HANDLING-->
