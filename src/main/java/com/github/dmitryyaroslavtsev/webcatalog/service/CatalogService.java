@@ -4,6 +4,7 @@ import com.github.dmitryyaroslavtsev.webcatalog.dto.Category;
 import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.CategoryRepo;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.ProductRepo;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,8 @@ public class CatalogService {
         for (Category category : categories) {
             String categoryName = category.getCategoryName();
             categoryNames.add(categoryName);
-            subcategories.put(categoryName, category.getSubcategories());
-            if (category.getSubcategories() != null) {
+            if (!CollectionUtils.isEmpty(category.getSubcategories())) {
+                subcategories.put(categoryName, category.getSubcategories());
                 for (String subcategory : category.getSubcategories()) {
                     String count = productRepo.countAllBySubcategory(subcategory).toString();
                     countList.put(subcategory, count);

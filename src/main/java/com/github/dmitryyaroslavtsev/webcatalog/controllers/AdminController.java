@@ -91,4 +91,12 @@ public class AdminController {
         modelAndView.setViewName("redirect:/admin/categories");
         return modelAndView;
     }
+
+    @GetMapping("products")
+    public String getProductsEditor(Map<String, Object> model) {
+
+        model.putAll(catalogService.getCatalog());
+
+        return "productsEditor";
+    }
 }

@@ -28,7 +28,7 @@
             <#nested>
         </div>
     </main>
-    <footer class="footer fixed-bottom bg-dark font-small text-white p-2">
+    <footer class="footer fixed-bottom info-color-dark font-small text-white p-2">
         <div class="footer-copyright text-center py-2">© 2019 Copyright</div>
     </footer>
 
