@@ -1,5 +1,5 @@
 <#import "parts/common.ftl" as c>
-<#import "parts/modalViews.ftl" as modalView>
+<#import "parts/categoriesModalViews.ftl" as modalView>
 
 <@c.page>
     <div class="row">

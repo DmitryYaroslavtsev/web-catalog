@@ -99,4 +99,11 @@ public class AdminController {
 
         return "productsEditor";
     }
+
+    @PostMapping("products/add")
+    public ModelAndView addProduct() {
+
+        modelAndView.setViewName("redirect:/admin/products");
+        return modelAndView;
+    }
 }

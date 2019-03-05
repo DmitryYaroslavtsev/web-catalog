@@ -1,6 +1,9 @@
 <#import "parts/common.ftl" as c>
+<#import "parts/productsModalViews.ftl" as modals>
 
 <@c.page>
+    <@modals.addProduct categories />
+
     <ul class="nav nav-tabs">
         <#list categories as category>
             <#if subcategories[category]??>
