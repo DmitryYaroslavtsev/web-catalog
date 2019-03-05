@@ -14,6 +14,10 @@
                                 <a class="dropdown-item" data-toggle="tab"
                                    href="#sub_${subcategory?replace(" ", "-")}">${subcategory}</a>
                             </#list>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" data-toggle="tab"
+                               href="#without_sub_${category?replace(" ", "-")}">Не попадающие под
+                                подкатегории</a>
                         </#if>
                     </div>
                 </li>
@@ -31,6 +35,10 @@
                     <div class="tab-pane fade" id="sub_${subcategory?replace(" ", "-")}"
                          aria-labelledby="sub_${subcategory?replace(" ", "-")}-tab">
                         sub_${subcategory}
+                    </div>
+                    <div class="tab-pane fade" id="without_sub_${category?replace(" ", "-")}"
+                         aria-labelledby="without_sub_${category?replace(" ", "-")}-tab">
+                        without_sub_${category}
                     </div>
                 </#list>
             <#else>
