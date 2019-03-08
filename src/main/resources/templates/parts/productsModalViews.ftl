@@ -38,8 +38,6 @@
                         <select class="custom-select" id="subcategories" name="subcategories" form="addProduct"
                                 required="required">
                             <option selected disabled value="">Выберите подкатегорию</option>
-
-
                         </select>
                     </div>
 
@@ -99,7 +97,7 @@
     <script type="text/javascript">
         var categoriesSelector = document.getElementById("categories");
         var subcategoriesSelector = document.getElementById("subcategories");
-
+        var categoriesList = [<#list categories as category>"${category}"<#if category_has_next>, </#if></#list>];
         var subcategoriesAsJson = ${subcategoriesAsJson};
 
         categoriesSelector.addEventListener("change", function () {
@@ -108,19 +106,15 @@
 
         function test() {
             var index = categoriesSelector.selectedIndex;
+            resetSelector();
             if (index !== -1) {
-                var categoriesList = [<#list categories as category>"${category}"<#if category_has_next>, </#if></#list>];
                 var categoryName = categoriesList[index - 1];
 
                 if (subcategoriesAsJson[categoryName] !== undefined) {
                     for (var i = 0; i < subcategoriesAsJson[categoryName].length; i++) {
-                        subcategoriesSelector[i] = new Option(subcategoriesAsJson[categoryName][i]);
+                        subcategoriesSelector[i + 1] = new Option(subcategoriesAsJson[categoryName][i]);
                     }
-                } else {
-                    resetSelector();
                 }
-            } else {
-                resetSelector();
             }
         }
 
@@ -128,7 +122,6 @@
             subcategoriesSelector.options.length = 0;
             subcategoriesSelector[0] = new Option("Выберите подкатегорию", "", true, true);
             subcategoriesSelector[0].disabled = true;
-            subcategoriesSelector.selectedIndex = 0;
         }
     </script>
 </#macro>
