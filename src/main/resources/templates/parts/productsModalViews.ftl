@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="md-form">
-                        <select class="custom-select" id="categories" name="categories" form="addProduct" required>
+                        <select class="custom-select" id="category" name="category" form="addProduct" required>
                             <option selected disabled value="">Выберите категорию</option>
                             <#list categories as category>
                                 <option value="${category}">${category}</option>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="md-form">
-                        <select class="custom-select" id="subcategories" name="subcategories" form="addProduct"
+                        <select class="custom-select" id="subcategory" name="subcategory" form="addProduct"
                                 required="required">
                             <option selected disabled value="">Выберите подкатегорию</option>
                         </select>
@@ -95,8 +95,8 @@
     </form>
 
     <script type="text/javascript">
-        var categoriesSelector = document.getElementById("categories");
-        var subcategoriesSelector = document.getElementById("subcategories");
+        var categoriesSelector = document.getElementById("category");
+        var subcategoriesSelector = document.getElementById("subcategory");
         var categoriesList = [<#list categories as category>"${category}"<#if category_has_next>, </#if></#list>];
         var subcategoriesAsJson = ${subcategoriesAsJson};
 

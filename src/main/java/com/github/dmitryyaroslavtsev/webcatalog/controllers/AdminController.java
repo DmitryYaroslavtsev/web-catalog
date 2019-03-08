@@ -102,7 +102,30 @@ public class AdminController {
     }
 
     @PostMapping("products/add")
-    public ModelAndView addProduct() {
+    public ModelAndView addProduct(
+            @RequestParam String name,
+            @RequestParam String category,
+            @RequestParam String subcategory,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String size,
+            @RequestParam(required = false) String material,
+            @RequestParam(required = false) String density,
+            @RequestParam(required = false) String colors,
+            @RequestParam(required = false) String packagingCount,
+            @RequestParam(required = false) boolean sterility
+    ) {
+
+        productService.saveProduct(
+                name,
+                category,
+                subcategory,
+                description,
+                size,
+                material,
+                density,
+                colors,
+                packagingCount,
+                sterility);
 
         modelAndView.setViewName("redirect:/admin/products");
         return modelAndView;
