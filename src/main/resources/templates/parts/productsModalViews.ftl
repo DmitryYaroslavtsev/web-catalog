@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="md-form">
-                        <select class="custom-select" name="categories" form="addProduct" required>
+                        <select class="custom-select" id="categories" name="categories" form="addProduct" required>
                             <option selected disabled value="">Выберите категорию</option>
                             <#list categories as category>
                                 <option value="${category}">${category}</option>
@@ -35,11 +35,11 @@
                     </div>
 
                     <div class="md-form">
-                        <select class="custom-select" name="subcategories" form="addProduct" required="required">
+                        <select class="custom-select" id="subcategories" name="subcategories" form="addProduct"
+                                required="required">
                             <option selected disabled value="">Выберите подкатегорию</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+
+
                         </select>
                     </div>
 
@@ -95,4 +95,40 @@
     <form id="addProduct" action="/admin/products/add" class="form-row text-center"
           method="post" enctype="multipart/form-data">
     </form>
+
+    <script type="text/javascript">
+        var categoriesSelector = document.getElementById("categories");
+        var subcategoriesSelector = document.getElementById("subcategories");
+
+        var subcategoriesAsJson = ${subcategoriesAsJson};
+
+        categoriesSelector.addEventListener("change", function () {
+            test();
+        });
+
+        function test() {
+            var index = categoriesSelector.selectedIndex;
+            if (index !== -1) {
+                var categoriesList = [<#list categories as category>"${category}"<#if category_has_next>, </#if></#list>];
+                var categoryName = categoriesList[index - 1];
+
+                if (subcategoriesAsJson[categoryName] !== undefined) {
+                    for (var i = 0; i < subcategoriesAsJson[categoryName].length; i++) {
+                        subcategoriesSelector[i] = new Option(subcategoriesAsJson[categoryName][i]);
+                    }
+                } else {
+                    resetSelector();
+                }
+            } else {
+                resetSelector();
+            }
+        }
+
+        function resetSelector() {
+            subcategoriesSelector.options.length = 0;
+            subcategoriesSelector[0] = new Option("Выберите подкатегорию", "", true, true);
+            subcategoriesSelector[0].disabled = true;
+            subcategoriesSelector.selectedIndex = 0;
+        }
+    </script>
 </#macro>

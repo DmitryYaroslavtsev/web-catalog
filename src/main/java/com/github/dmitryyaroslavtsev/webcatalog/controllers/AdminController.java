@@ -1,5 +1,6 @@
 package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.dmitryyaroslavtsev.webcatalog.service.AdminService;
 import com.github.dmitryyaroslavtsev.webcatalog.service.CatalogService;
 import com.github.dmitryyaroslavtsev.webcatalog.service.ProductService;
@@ -36,7 +37,7 @@ public class AdminController {
     }
 
     @GetMapping("categories")
-    public String getCategoryEditor(Map<String, Object> model) {
+    public String getCategoryEditor(Map<String, Object> model) throws JsonProcessingException {
 
         model.putAll(catalogService.getCatalog());
         return "categoryEditor";
@@ -93,7 +94,7 @@ public class AdminController {
     }
 
     @GetMapping("products")
-    public String getProductsEditor(Map<String, Object> model) {
+    public String getProductsEditor(Map<String, Object> model) throws JsonProcessingException {
 
         model.putAll(catalogService.getCatalog());
 

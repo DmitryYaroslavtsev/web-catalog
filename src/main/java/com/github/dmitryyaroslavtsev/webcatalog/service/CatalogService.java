@@ -1,5 +1,7 @@
 package com.github.dmitryyaroslavtsev.webcatalog.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.dmitryyaroslavtsev.webcatalog.dto.Category;
 import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.CategoryRepo;
@@ -23,8 +25,13 @@ public class CatalogService {
     @Autowired
     private ProductRepo productRepo;
 
+    private ObjectMapper mapper = new ObjectMapper();
 
-    public Map<String, Object> getCatalog() {
+
+    public Map<String, Object> getCatalog() throws JsonProcessingException {
+
+        String subcategoriesAsJson;
+
         Map<String, Object> catalogMap = new HashMap<>();
 
         List<Category> categories = categoryRepo.findAll();
@@ -50,10 +57,12 @@ public class CatalogService {
             }
         }
 
+        subcategoriesAsJson = mapper.writeValueAsString(subcategories);
         catalogMap.put("categories", categoryNames);
         catalogMap.put("subcategories", subcategories);
         catalogMap.put("countList", countList);
         catalogMap.put("products", products);
+        catalogMap.put("subcategoriesAsJson", subcategoriesAsJson);
 
         return catalogMap;
     }
