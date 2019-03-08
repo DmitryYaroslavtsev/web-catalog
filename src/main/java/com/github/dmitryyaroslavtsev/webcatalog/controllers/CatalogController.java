@@ -13,8 +13,12 @@ import java.util.Map;
 @RequestMapping("/catalog")
 public class CatalogController {
 
+    private final CatalogService catalogService;
+
     @Autowired
-    private CatalogService catalogService;
+    public CatalogController(CatalogService catalogService) {
+        this.catalogService = catalogService;
+    }
 
 
     @GetMapping("")

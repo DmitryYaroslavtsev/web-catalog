@@ -19,13 +19,17 @@ import java.util.Map;
 public class CatalogService {
 
 
-    @Autowired
-    private CategoryRepo categoryRepo;
+    private final CategoryRepo categoryRepo;
 
-    @Autowired
-    private ProductRepo productRepo;
+    private final ProductRepo productRepo;
 
     private ObjectMapper mapper = new ObjectMapper();
+
+    @Autowired
+    public CatalogService(CategoryRepo categoryRepo, ProductRepo productRepo) {
+        this.categoryRepo = categoryRepo;
+        this.productRepo = productRepo;
+    }
 
 
     public Map<String, Object> getCatalog() throws JsonProcessingException {

@@ -13,8 +13,13 @@ import java.util.List;
 
 @Service
 public class AdminService {
+
+    private final CategoryRepo categoryRepo;
+
     @Autowired
-    CategoryRepo categoryRepo;
+    public AdminService(CategoryRepo categoryRepo) {
+        this.categoryRepo = categoryRepo;
+    }
 
     public void createCategory(String categoryName, String subcategoriesNames) {
         Category category = new Category();

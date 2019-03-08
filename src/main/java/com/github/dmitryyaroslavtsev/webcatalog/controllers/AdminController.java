@@ -20,16 +20,20 @@ import java.util.Map;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    private AdminService adminService;
+    private final AdminService adminService;
 
-    @Autowired
-    private CatalogService catalogService;
+    private final CatalogService catalogService;
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
     private ModelAndView modelAndView = new ModelAndView();
+
+    @Autowired
+    public AdminController(AdminService adminService, CatalogService catalogService, ProductService productService) {
+        this.adminService = adminService;
+        this.catalogService = catalogService;
+        this.productService = productService;
+    }
 
     @GetMapping
     public String getAdminPage() {

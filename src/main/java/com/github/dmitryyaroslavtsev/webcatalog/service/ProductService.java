@@ -8,6 +8,7 @@ import com.github.dmitryyaroslavtsev.webcatalog.repos.CategoryRepo;
 import com.github.dmitryyaroslavtsev.webcatalog.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -16,11 +17,15 @@ import java.util.stream.Collectors;
 @Service
 public class ProductService {
 
-    @Autowired
-    private ProductRepo productRepo;
+    private final ProductRepo productRepo;
+
+    private final CategoryRepo categoryRepo;
 
     @Autowired
-    CategoryRepo categoryRepo;
+    public ProductService(ProductRepo productRepo, CategoryRepo categoryRepo) {
+        this.productRepo = productRepo;
+        this.categoryRepo = categoryRepo;
+    }
 
     public void removeProductsByCategory(String category) {
         productRepo.deleteAllByCategoryCategoryName(category);
@@ -42,26 +47,36 @@ public class ProductService {
 
 
         Attributes attributes = Attributes.builder()
-                .size(new HashSet<String>() {{
-                    this.addAll(Arrays.asList(size.split(",")));
-                }})
-                .material(new HashSet<String>() {{
-                    this.addAll(Arrays.asList(material.split(",")));
-                }})
-                .density(new HashSet<String>() {{
-                    this.addAll(Arrays.asList(density.split(",")));
-                }})
-                .colors(new HashSet<String>() {{
-                    this.addAll(Arrays.asList(colors.split(",")));
-                }})
-                .packagingCount(new HashSet<Integer>() {{
-                    this.addAll(
-                            Arrays.stream(packagingCount
-                                    .split(","))
-                                    .map(Integer::parseInt)
-                                    .collect(Collectors.toList())
-                    );
-                }})
+                .size(
+                        StringUtils.isEmpty(size) ? null :
+                                new HashSet<String>() {{
+                                    this.addAll(Arrays.asList(size.split(",")));
+                                }})
+                .material(
+                        StringUtils.isEmpty(material) ? null :
+                                new HashSet<String>() {{
+                                    this.addAll(Arrays.asList(material.split(",")));
+                                }})
+                .density(
+                        StringUtils.isEmpty(density) ? null :
+                                new HashSet<String>() {{
+                                    this.addAll(Arrays.asList(density.split(",")));
+                                }})
+                .colors(
+                        StringUtils.isEmpty(colors) ? null :
+                                new HashSet<String>() {{
+                                    this.addAll(Arrays.asList(colors.split(",")));
+                                }})
+                .packagingCount(
+                        StringUtils.isEmpty(packagingCount) ? null :
+                                new HashSet<Integer>() {{
+                                    this.addAll(
+                                            Arrays.stream(packagingCount
+                                                    .split(","))
+                                                    .map(Integer::parseInt)
+                                                    .collect(Collectors.toList())
+                                    );
+                                }})
                 .sterility(sterility ? Sterility.Да : Sterility.Нет)
                 .build();
 
