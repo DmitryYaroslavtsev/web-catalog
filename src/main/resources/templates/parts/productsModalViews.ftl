@@ -39,7 +39,7 @@
                         <input type="text" name="name" class="form-control"
                                <#if addForm>form="addProduct" value="" id="form-name-add"
                                 <#else>
-                                    form="edit_product_${product.id}" value=${product.name} id="form-name-add${product.id}"
+                                    form="edit_product_${product.id}" value="${product.name}" id="form-name-add${product.id}"
                                 </#if>
                                required>
                         <label for="form-name">Наименование</label>
@@ -83,60 +83,35 @@
                         <input type="text" id="form-size" name="size" class="form-control"
                                <#if addForm>form="addProduct" value=""
                                 <#else>
-                                    form="edit_product_${product.id}" value=
-                                    <#list product.attributes.size! as size>
-                                        ${size}<#sep>,</#sep>
-                                    </#list>
-                                </#if>
-                        >
+                                    form="edit_product_${product.id}" value="<#list product.attributes.size! as size>${size}<#sep>,</#sep></#list></#if>">
                         <label for="form-size">Размеры (через запятую)</label>
                     </div>
                     <div class="md-form">
                         <input type="text" id="form-material" name="material" class="form-control"
                                <#if addForm>form="addProduct" value=""
                                 <#else>
-                                    form="edit_product_${product.id}" value=
-                                    <#list product.attributes.material! as material>
-                                        ${material}<#sep>,</#sep>
-                                    </#list>
-                                </#if>
-                        >
+                                    form="edit_product_${product.id}" value="<#list product.attributes.material! as material>${material}<#sep>,</#sep></#list></#if>">
                         <label for="form-material">Материал (через запятую</label>
                     </div>
                     <div class="md-form">
                         <input type="text" id="form-density" name="density" class="form-control"
                                <#if addForm>form="addProduct" value=""
                                 <#else>
-                                    form="edit_product_${product.id}" value=
-                                    <#list product.attributes.density! as density>
-                                        ${density}<#sep>,</#sep>
-                                    </#list>
-                                </#if>
-                        >
+                                    form="edit_product_${product.id}" value="<#list product.attributes.density! as density>${density}<#sep>,</#sep></#list></#if>">
                         <label for="form-density">Плотность (через запятую)</label>
                     </div>
                     <div class="md-form">
                         <input type="text" id="form-colors" name="colors" class="form-control"
                                <#if addForm>value="" form="addProduct"
                                 <#else>
-                                    form="edit_product_${product.id}" value=
-                                    <#list product.attributes.colors! as color>
-                                        ${color}<#sep>,</#sep>
-                                    </#list>
-                                </#if>
-                        >
+                                    form="edit_product_${product.id}" value="<#list product.attributes.colors! as color>${color}<#sep>,</#sep></#list></#if>">
                         <label for="form-colors">Цвета (через запятую)</label>
                     </div>
                     <div class="md-form">
                         <input type="text" id="form-packagingCount" name="packagingCount" class="form-control"
                                <#if addForm>form="addProduct" value=""
                                 <#else>
-                                    form="edit_product_${product.id}" value=
-                                    <#list product.attributes.packagingCount! as packagingCount>
-                                        ${packagingCount}<#sep>,</#sep>
-                                    </#list>
-                                </#if>
-                        >
+                                    form="edit_product_${product.id}" value="<#list product.attributes.packagingCount! as packagingCount>${packagingCount}<#sep>,</#sep></#list></#if>">
                         <label for="form-packagingCount">Кол-во в упаковке (через запятую)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
