@@ -119,6 +119,9 @@
                                <#if addForm>form="addProduct"
                                 <#else>
                                     form="edit_product_${product.id}"
+                                <#if product.attributes.sterility == "Да">
+                                    checked
+                                    </#if>
                                 </#if>
                                class="form-check-input" id="sterility">
                         <label class="form-check-label" for="sterility">Стерильность</label>
