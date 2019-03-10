@@ -90,4 +90,12 @@ public class ProductService {
                         .build()
         );
     }
+
+    public Product findById(String id) {
+        if (productRepo.findById(id).isPresent()) {
+            return productRepo.findById(id).get();
+        } else {
+            return null;
+        }
+    }
 }

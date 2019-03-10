@@ -1,11 +1,6 @@
-<#import "table.ftl" as table>
+<#import "catalogTable.ftl" as table>
 
 <#macro sub category subcategories countList products>
-    <head>
-        <!-- MDBootstrap Datatables  -->
-        <link href="../../css/addons/datatables.min.css" rel="stylesheet">
-    </head>
-
     <div class="tab-pane fade wow fadeIn" id="list-${category?replace(" ", "-")}" role="tabpanel"
          aria-labelledby="list-${category?replace(" ", "-")}-list">
         <div class="container">
@@ -34,7 +29,7 @@
                                 <div class="card-body">
                                     <#if products[subcategory]??>
                                     <table id="dt_${category?replace(" ", "-")}_${subcategory?index}"
-                                           class="table table-responsive table-bordered table-hover table-sm"
+                                           class="table table-responsive-lg table-bordered table-hover table-sm"
                                            cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
@@ -49,15 +44,11 @@
                                             <th class="th-sm">Кол-во в упаковке</th>
                                         </tr>
                                         </thead>
-                                        <tbody
+                                        <tbody>
                                         <@table.table products[subcategory] />
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- JQuery -->
-                                <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-                                <!-- MDBootstrap Datatables  -->
-                                <script type="text/javascript" src="../../js/addons/datatables.min.js"></script>
                                 <script>
                                     $(document).ready(function ($) {
                                         $('#dt_${category?replace(" ", "-")}_${subcategory?index}').DataTable({
@@ -68,7 +59,6 @@
                                             }
                                         });
                                         $('.dataTables_length').addClass('bs-select');
-
                                     });
                                 </script>
                                 </#if>

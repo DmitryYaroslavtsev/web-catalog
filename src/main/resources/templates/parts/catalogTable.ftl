@@ -6,28 +6,28 @@
             <td>${product.description!}</td>
             <td>
                 <#list product.attributes.size! as size>
-                    ${size}
+                    ${size}<#sep>, </#sep>
                 </#list>
             </td>
             <td>
                 <#list product.attributes.material! as material>
-                    ${material}
+                    ${material}<#sep>, </#sep>
                 </#list>
             </td>
             <td>
                 <#list product.attributes.density! as density>
-                    ${density}
+                    ${density}<#sep>, </#sep>
                 </#list>
             </td>
             <td>${product.attributes.sterility!?string}</td>
             <td>
                 <#list product.attributes.colors! as color>
-                    ${color}
+                    ${color}<#sep>, </#sep>
                 </#list>
             </td>
             <td>
                 <#list product.attributes.packagingCount! as packagingCount>
-                    ${packagingCount}
+                    ${packagingCount}<#sep>, </#sep>
                 </#list>
             </td>
         </tr>

@@ -15,6 +15,8 @@
         <link href="../../css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="../../css/style.css" rel="stylesheet">
+        <!-- MDBootstrap Datatables  -->
+        <link href="../../css/addons/datatables.min.css" rel="stylesheet">
 
         <title>Web-catalog</title>
     </head>
@@ -22,7 +24,10 @@
     <header>
         <#include "navbar.ftl" >
     </header>
-
+    <!-- JQuery -->
+    <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="../../js/addons/datatables.min.js"></script>
     <main>
         <div class="container-fluid p-5 wow fadeIn">
             <#nested>

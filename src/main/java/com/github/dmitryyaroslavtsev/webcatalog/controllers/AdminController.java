@@ -1,6 +1,7 @@
 package com.github.dmitryyaroslavtsev.webcatalog.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.dmitryyaroslavtsev.webcatalog.dto.Product;
 import com.github.dmitryyaroslavtsev.webcatalog.service.AdminService;
 import com.github.dmitryyaroslavtsev.webcatalog.service.CatalogService;
 import com.github.dmitryyaroslavtsev.webcatalog.service.ProductService;
@@ -130,6 +131,34 @@ public class AdminController {
                 colors,
                 packagingCount,
                 sterility);
+
+        modelAndView.setViewName("redirect:/admin/products");
+        return modelAndView;
+    }
+
+    @PostMapping("products/{id}/edit")
+    public ModelAndView editProduct(
+            @PathVariable String id,
+            @RequestParam String name,
+            @RequestParam String category,
+            @RequestParam String subcategory,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String size,
+            @RequestParam(required = false) String material,
+            @RequestParam(required = false) String density,
+            @RequestParam(required = false) String colors,
+            @RequestParam(required = false) String packagingCount,
+            @RequestParam(required = false) boolean sterility,
+            RedirectAttributes attributes
+    ) {
+
+        Product product = productService.findById(id);
+
+        if (product == null) {
+            attributes.addFlashAttribute("editError", "Product isn't exist for update");
+        } else {
+
+        }
 
         modelAndView.setViewName("redirect:/admin/products");
         return modelAndView;
