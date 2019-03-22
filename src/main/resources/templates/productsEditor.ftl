@@ -3,7 +3,7 @@
 <#import "parts/productEditorTables.ftl" as table>
 
 <@c.page>
-    <@modals.manageProducts true 0/>
+    <@modals.addForm/>
 
     <ul class="nav nav-tabs">
         <#list categories as category>
