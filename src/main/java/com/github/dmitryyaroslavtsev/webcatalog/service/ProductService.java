@@ -46,7 +46,75 @@ public class ProductService {
         Category categoryForProduct = categoryRepo.findByCategoryName(category);
 
 
-        Attributes attributes = Attributes.builder()
+        Attributes attributes = createAttributes(
+                size,
+                material,
+                density,
+                colors,
+                packagingCount,
+                sterility
+        );
+
+        productRepo.save(
+                Product.builder()
+                        .name(name)
+                        .category(categoryForProduct)
+                        .subcategory(subcategory)
+                        .description(description)
+                        .attributes(attributes)
+                        .build()
+        );
+    }
+
+    public Product findById(String id) {
+        if (productRepo.findById(id).isPresent()) {
+            return productRepo.findById(id).get();
+        } else {
+            return null;
+        }
+    }
+
+    public void updateProduct(
+            Product product,
+            String name,
+            String category,
+            String subcategory,
+            String description,
+            String size,
+            String material,
+            String density,
+            String colors,
+            String packagingCount,
+            boolean sterility) {
+
+        Category categoryForProduct = categoryRepo.findByCategoryName(category);
+
+        product.setName(name);
+        product.setDescription(description);
+        product.setCategory(categoryForProduct);
+        product.setSubcategory(subcategory);
+
+        product.setAttributes(
+                createAttributes(
+                        size,
+                        material,
+                        density,
+                        colors,
+                        packagingCount,
+                        sterility
+                )
+        );
+        productRepo.save(product);
+    }
+
+    private Attributes createAttributes(
+            String size,
+            String material,
+            String density,
+            String colors,
+            String packagingCount,
+            boolean sterility) {
+        return Attributes.builder()
                 .size(
                         StringUtils.isEmpty(size) ? null :
                                 new HashSet<String>() {{
@@ -79,23 +147,5 @@ public class ProductService {
                                 }})
                 .sterility(sterility ? Sterility.Да : Sterility.Нет)
                 .build();
-
-        productRepo.save(
-                Product.builder()
-                        .name(name)
-                        .category(categoryForProduct)
-                        .subcategory(subcategory)
-                        .description(description)
-                        .attributes(attributes)
-                        .build()
-        );
-    }
-
-    public Product findById(String id) {
-        if (productRepo.findById(id).isPresent()) {
-            return productRepo.findById(id).get();
-        } else {
-            return null;
-        }
     }
 }

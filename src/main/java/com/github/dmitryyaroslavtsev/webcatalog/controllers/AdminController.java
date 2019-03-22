@@ -130,7 +130,8 @@ public class AdminController {
                 density,
                 colors,
                 packagingCount,
-                sterility);
+                sterility
+        );
 
         modelAndView.setViewName("redirect:/admin/products");
         return modelAndView;
@@ -157,7 +158,19 @@ public class AdminController {
         if (product == null) {
             attributes.addFlashAttribute("editError", "Product isn't exist for update");
         } else {
-
+            productService.updateProduct(
+                    product,
+                    name,
+                    category,
+                    subcategory,
+                    description,
+                    size,
+                    material,
+                    density,
+                    colors,
+                    packagingCount,
+                    sterility
+            );
         }
 
         modelAndView.setViewName("redirect:/admin/products");
