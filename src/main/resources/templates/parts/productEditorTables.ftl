@@ -36,7 +36,7 @@
                 <@modals.editForm product />
             </td>
             <td>
-
+                <@modals.removeForm product />
             </td>
         </tr>
     </#list>

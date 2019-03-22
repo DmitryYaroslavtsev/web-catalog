@@ -283,9 +283,56 @@
     </script>
 </#macro>
 
+<#macro removeForm product>
+    <div class="m-auto">
+        <button type="button" class="btn btn-danger text-white btn-sm" data-toggle="modal"
+                data-target="#remove_modal_form_${product.id}">
+            <i class="fas fa-trash mr-2"></i>Удалить
+        </button>
+    </div>
+
+    <div class="modal fade" id="remove_modal_form_${product.id}" tabindex="-1" role="dialog"
+         aria-labelledby="remove_modal_form${product.id}"
+         aria-hidden="true">
+        <div class="modal-dialog modal-danger" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center danger-color text-white">
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-trash mr-2"></i>Удалить категорию
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div>
+                        <h6>Вы уверены, что хотите удалить продукт "${product.name}?"</h6>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="col">
+                        <button type="submit" form="remove_product_${product.id}"
+                                class="btn btn-danger text-white">
+                            <i class="fas fa-trash mr-2"></i>Удалить
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-danger text-white" data-dismiss="modal">
+                            <i class="fas fa-times mr-2"></i>Отменить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</#macro>
+
 <#macro form products>
     <#list products as product>
         <form id="edit_product_${product.id}" action="/admin/products/${product.id}/edit"
+              class="form-row text-center"
+              method="post" enctype="multipart/form-data">
+        </form>
+        <form id="remove_product_${product.id}" action="/admin/products/${product.id}/remove"
               class="form-row text-center"
               method="post" enctype="multipart/form-data">
         </form>

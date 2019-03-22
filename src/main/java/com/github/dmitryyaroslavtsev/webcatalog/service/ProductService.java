@@ -148,4 +148,8 @@ public class ProductService {
                 .sterility(sterility ? Sterility.Да : Sterility.Нет)
                 .build();
     }
+
+    public void removeProduct(String id) {
+        productRepo.deleteById(id);
+    }
 }

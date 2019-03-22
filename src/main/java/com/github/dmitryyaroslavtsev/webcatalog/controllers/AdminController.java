@@ -176,4 +176,13 @@ public class AdminController {
         modelAndView.setViewName("redirect:/admin/products");
         return modelAndView;
     }
+
+    @PostMapping("products/{id}/remove")
+    public ModelAndView removeProduct(
+            @PathVariable String id)
+    {
+        productService.removeProduct(id);
+        modelAndView.setViewName("redirect:/admin/products");
+        return modelAndView;
+    }
 }
