@@ -148,7 +148,8 @@
                 </div>
                 <div class="modal-body mx-3">
                     <div class="md-form">
-                        <input type="text" name="name" class="form-control" form="edit_product_${product.id}" value=""
+                        <input type="text" name="name" class="form-control" form="edit_product_${product.id}"
+                               value="${product.name!}"
                                id="form-name-edit${product.id}" required>
                         <label for="form-name">Наименование</label>
                     </div>
@@ -173,45 +174,52 @@
                     <div class="md-form">
                         <input type="text" id="form-description-edit${product.id}" name="description"
                                class="form-control"
-                               form="edit_product_${product.id}" value="">
+                               form="edit_product_${product.id}"
+                               value="${product.description!}">
                         <label for="form-description">Описание</label>
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="form-size-edit${product.id}" name="size" class="form-control"
-                               form="edit_product_${product.id}" value="">
+                               form="edit_product_${product.id}"
+                               value="<#list product.attributes.size! as size>${size}<#sep>,</#sep></#list>">
                         <label for="form-size">Размеры (через запятую)</label>
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="form-material-edit${product.id}" name="material" class="form-control"
-                               form="edit_product_${product.id}" value="">
+                               form="edit_product_${product.id}"
+                               value="<#list product.attributes.material! as material>${material}<#sep>,</#sep></#list>">
                         <label for="form-material">Материал (через запятую</label>
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="form-density-edit${product.id}" name="density" class="form-control"
                                form="edit_product_${product.id}"
-                               value="">
+                               value="<#list product.attributes.density! as density>${density}<#sep>,</#sep></#list>">
                         <label for="form-density">Плотность (через запятую)</label>
                     </div>
 
                     <div class="md-form">
                         <input type="text" id="form-colors-edit${product.id}" name="colors" class="form-control"
-                               value=""
-                               form="edit_product_${product.id}">
+                               form="edit_product_${product.id}"
+                               value="<#list product.attributes.colors! as colors>${colors}<#sep>,</#sep></#list>">
                         <label for="form-colors">Цвета (через запятую)</label>
                     </div>
                     <div class="md-form">
                         <input type="text" id="form-packagingCount-edit${product.id}" name="packagingCount"
                                class="form-control"
-                               form="edit_product_${product.id}" value="">
+                               form="edit_product_${product.id}"
+                               value="<#list product.attributes.packagingCount! as packagingCount>${packagingCount}<#sep>,</#sep></#list>">
                         <label for="form-packagingCount">Кол-во в упаковке (через запятую)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="sterility" form="edit_product_${product.id}"
                                class="form-check-input"
-                               id="sterility-edit${product.id}">
+                               id="sterility-edit${product.id}"
+                                <#if product.attributes.sterility == "Да">
+                                    checked
+                                </#if>>
                         <label class="form-check-label" for="sterility">Стерильность</label>
                     </div>
                 </div>
