@@ -9,7 +9,7 @@
     <div class="modal fade" id="edit_modal_form${category_index}" tabindex="-1" role="dialog"
          aria-labelledby="edit_modal_form${category_index}"
          aria-hidden="true">
-        <div class="modal-dialog modal-info" role="document">
+        <div class="modal-dialog modal-lg modal-info" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center info-color-dark text-white">
                     <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-pencil-alt mr-2"></i>Редактировать
