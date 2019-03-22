@@ -129,13 +129,15 @@
 
 <#macro editForm product>
     <div class="m-auto">
-        <button type="button" class="btn info-color-dark text-white btn-sm" data-target="#edit_product_form_${product.id}"
+        <button type="button" class="btn info-color-dark text-white btn-sm"
+                data-target="#edit_product_form_${product.id}"
                 data-toggle="modal">
             <i class="fas fa-pencil-alt mr-2"></i>Редактировать
         </button>
     </div>
 
-    <div class="modal fade" id="edit_product_form_${product.id}" aria-labelledby="edit_product_form_${product.id}" tabindex="-1" role="dialog"
+    <div class="modal fade" id="edit_product_form_${product.id}" aria-labelledby="edit_product_form_${product.id}"
+         tabindex="-1" role="dialog"
          aria-hidden="true">
         <div class="modal-dialog modal-lg modal-info " role="document">
             <div class="modal-content">
@@ -156,10 +158,17 @@
 
                     <div class="md-form">
                         <select class="custom-select" name="category" id="category${product.id}"
-                                onchange="test('${product.id}')" form="edit_product_${product.id}" required>
-                            <option selected disabled value="">Выберите категорию</option>
+                                onchange="test('${product.id}')"
+                                form="edit_product_${product.id}" required>
                             <#list categories as category>
-                                <option value="${category}">${category}</option>
+                                <option
+                                        <#if category == product.category.categoryName>
+                                        value="${category}" selected>
+                                    <#else>
+                                        value="${category}">
+                                    </#if>
+                                    ${category}
+                                </option>
                             </#list>
                         </select>
                     </div>
@@ -167,7 +176,16 @@
                     <div class="md-form">
                         <select class="custom-select" name="subcategory" form="edit_product_${product.id}"
                                 id="subcategory${product.id}" required>
-                            <option selected disabled value="">Выберите подкатегорию</option>
+                            <#list subcategories[product.category.categoryName] as subcategory>
+                                <option
+                                        <#if subcategory == product.subcategory>
+                                        value="${subcategory}" selected>
+                                    <#else>
+                                        value="${subcategory}">
+                                    </#if>
+                                    ${subcategory}
+                                </option>
+                            </#list>
                         </select>
                     </div>
 
@@ -247,7 +265,7 @@
 
             resetSelector();
             if (index !== -1) {
-                var categoryName = categoriesList[index - 1];
+                var categoryName = categoriesList[index];
                 if (subcategoriesAsJson[categoryName] !== undefined) {
                     for (var i = 0; i < subcategoriesAsJson[categoryName].length; i++) {
                         subcategoriesSelector[i + 1] = new Option(subcategoriesAsJson[categoryName][i]);
