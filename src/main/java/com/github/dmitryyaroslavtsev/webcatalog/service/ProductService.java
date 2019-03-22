@@ -28,7 +28,7 @@ public class ProductService {
     }
 
     public void removeProductsByCategory(String category) {
-        productRepo.deleteAllByCategoryCategoryName(category);
+        productRepo.deleteAllByCategory_CategoryName(category);
     }
 
     public void saveProduct(

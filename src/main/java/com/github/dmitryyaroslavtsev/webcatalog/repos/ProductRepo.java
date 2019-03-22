@@ -20,5 +20,5 @@ public interface ProductRepo extends MongoRepository<Product, String> {
 
     List<Product> findBySubcategory(String subcategory);
 
-    Long deleteAllByCategoryCategoryName(String category);
+    Long deleteAllByCategory_CategoryName(String category);
 }

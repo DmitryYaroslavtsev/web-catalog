@@ -29,7 +29,7 @@
                                 <div class="card-body">
                                     <#if products[subcategory]??>
                                     <table id="dt_${category?replace(" ", "-")}_${subcategory?index}"
-                                           class="table table-responsive-lg table-bordered table-hover table-sm"
+                                           class="table table-responsive table-bordered table-hover table-sm"
                                            cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
