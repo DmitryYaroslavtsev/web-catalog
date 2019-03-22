@@ -127,15 +127,15 @@
     </script>
 </#macro>
 
-<#macro editForm product product_id>
+<#macro editForm product>
     <div class="m-auto">
-        <button type="button" class="btn info-color-dark text-white btn-sm" data-target="#edit_product_form"
+        <button type="button" class="btn info-color-dark text-white btn-sm" data-target="#edit_product_form_${product.id}"
                 data-toggle="modal">
             <i class="fas fa-pencil-alt mr-2"></i>Редактировать
         </button>
     </div>
 
-    <div class="modal fade" id="edit_product_form" aria-labelledby="edit_product_form" tabindex="-1" role="dialog"
+    <div class="modal fade" id="edit_product_form_${product.id}" aria-labelledby="edit_product_form_${product.id}" tabindex="-1" role="dialog"
          aria-hidden="true">
         <div class="modal-dialog modal-lg modal-info " role="document">
             <div class="modal-content">
@@ -155,7 +155,7 @@
 
                     <div class="md-form">
                         <select class="custom-select" name="category" id="category${product.id}"
-                                onchange="test('${product_id}')" form="edit_product_${product.id}" required>
+                                onchange="test('${product.id}')" form="edit_product_${product.id}" required>
                             <option selected disabled value="">Выберите категорию</option>
                             <#list categories as category>
                                 <option value="${category}">${category}</option>

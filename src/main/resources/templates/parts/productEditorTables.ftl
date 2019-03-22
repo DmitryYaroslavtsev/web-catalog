@@ -33,7 +33,7 @@
                 </#list>
             </td>
             <td>
-                <@modals.editForm product product.id/>
+                <@modals.editForm product />
             </td>
             <td>
 
